@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover" />
+  <meta name="theme-color" content="#090b19" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='.9em' font-size='54'%3E%E2%9C%A6%3C/text%3E%3C/svg%3E" />
+  <title>GUERREROS DEL CAOS</title>
+  <link rel="stylesheet" href="./style.css" />
+  <script type="importmap">{"imports":{"three":"https://unpkg.com/three@0.169.0/build/three.module.js"}}</script>
+</head>
+<body>
+  <main id="game">
+    <canvas id="scene" aria-label="Arena de combate 3D"></canvas>
+    <div class="vignette"></div>
+    <header class="topbar">
+      <div class="brand"><span class="brand-mark">✦</span><div><b>GUERREROS <i>DEL CAOS</i></b><small>CRÓNICAS DEL ECLIPSE</small></div></div>
+      <div class="round"><span>COMBATE</span><b id="roundLabel">01</b><span class="round-line"></span><span id="timer">99</span></div>
+      <button class="sound" id="soundBtn" aria-label="Activar sonido">♫ <span>SONIDO</span></button>
+    </header>
+    <section class="fight-ui">
+      <div class="fighter-card player-card">
+        <div class="fighter-title"><span class="portrait">火</span><div><b>KAEL</b><small>HEREDERO DE LA LLAMA</small></div><strong id="pWins">0</strong></div>
+        <div class="health-track"><div id="pHealth" class="health-fill player-health"></div><span>ENERGÍA VITAL</span></div>
+        <div class="ki-track"><div id="pKi" class="ki-fill"></div><span>✦ KI</span></div>
+      </div>
+      <div class="versus">VS</div>
+      <div class="fighter-card enemy-card">
+        <div class="fighter-title"><strong id="eWins">0</strong><div><b id="enemyName">VEX</b><small id="enemyTitle">SEÑOR DEL VACÍO</small></div><span class="portrait foe">◈</span></div>
+        <div class="health-track"><div id="eHealth" class="health-fill enemy-health"></div><span>ENERGÍA VITAL</span></div>
+        <div class="ki-track"><div id="eKi" class="ki-fill foe-ki"></div><span>✦ KI</span></div>
+      </div>
+    </section>
+    <div class="arena-label"><span class="live-dot"></span><span id="stageName">SANTUARIO DEL ECLIPSE</span><i>・</i><span>ARENA 01</span></div>
+    <div class="center-message" id="message"><span class="msg-kicker">EL DESTINO SE DECIDE</span><b id="messageTitle">¡LUCHEN!</b><small id="messageSub">DERROTA AL SEÑOR DEL VACÍO</small></div>
+    <div class="transform-meter"><span>ASCENSIÓN</span><div><i id="transformFill"></i></div><small id="transformText">0%</small></div>
+    <div class="hint" id="hint">MUEVE Y COMBATE <span>·</span> KI AL 100% PARA ASCENDER Y VOLAR
+    <div class="controls">
+      <div class="move-pad"><button class="control move" data-action="left" aria-label="Mover a la izquierda"><span>◀</span></button><button class="control move" data-action="right" aria-label="Mover a la derecha"><span>▶</span></button><button class="control jump" data-action="jump" aria-label="Saltar"><span>↑</span><small>SALTO</small></button></div>
+      <div class="action-pad"><button class="control guard" data-action="block"><span>◒</span><small>GUARDIA</small></button><button class="control strike" data-action="punch"><span>✦</span><small>GOLPE</small></button><button class="control power" data-action="power"><span>◉</span><small>KI BLAST</small></button><button class="control ascend" data-action="transform"><span>♨</span><small>ASCENDER</small></button></div>
+    </div>
+    <div class="mobile-tip">CONTROLES TÁCTILES · TECLADO WASD / J K L</div>
+    <button class="restart" id="restartBtn">↻ <span>NUEVO COMBATE</span></button>
+    <div class="loading" id="loading"><div class="loader-mark">✦</div><b>ABRIENDO EL PORTAL</b><span>PREPARANDO LA ARENA...</span></div>
+  </main>
+  <script type="module" src="./game.js"></script>
+</body>
+</html>
